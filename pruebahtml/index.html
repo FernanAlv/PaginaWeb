@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Restaurante</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+  <!-- Botón de menú para abrir/cerrar el menú lateral -->
+  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+
+  <!-- Menú Lateral -->
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">&times;</div>
+    <ul>
+      <li><a href="#inicio" onclick="scrollToSection('inicio')">Inicio</a></li>
+      <li><a href="#horarios" onclick="scrollToSection('horarios')">Horarios</a></li>
+      <li><a href="#contacto" onclick="scrollToSection('contacto')">Contacto</a></li>
+      <li><a href="#quienes-somos" onclick="scrollToSection('quienes-somos')">Quiénes Somos</a></li>
+      <li><a href="#ubicacion" onclick="scrollToSection('ubicacion')">Ubicación</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="content">
+    <header>
+      <div class="title-bar">
+        <h1>Mi Restaurante</h1>
+        <div class="buttons">
+          <button onclick="openReservation()">Reserva</button>
+          <button onclick="goToMenu()">Menú de Comida</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio">
+        <h2>Bienvenido a nuestro restaurante</h2>
+        <p>Descubre los mejores platillos en un ambiente único.</p>
+      </section>
+
+      <section id="horarios">
+        <h2>Horarios</h2>
+        <p>Estamos abiertos todos los días de 9:00 AM a 10:00 PM. ¡Ven a visitarnos!</p>
+      </section>
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Teléfono: +123 456 7890</p>
+        <p>Correo: contacto@restaurante.com</p>
+        <p>Dirección: Calle Principal #123, Ciudad, País</p>
+      </section>
+
+      <section id="quienes-somos">
+        <h2>Quiénes Somos</h2>
+        <p>Somos un restaurante comprometido con ofrecer experiencias gastronómicas únicas y memorables.</p>
+      </section>
+
+      <section id="ubicacion">
+        <h2>Ubicación</h2>
+        <p>Visítanos en la siguiente ubicación para disfrutar de nuestros platillos.</p>
+        <div id="map" style="height: 300px; width: 100%;"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Mi Restaurante</p>
+    </footer>
+  </div>
+
+  <script>
+    // Función para inicializar el mapa de Google Maps
+    function initMap() {
+      const restaurantLocation = { lat: 40.748817, lng: -73.985428 }; // Coordenadas de ejemplo
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: restaurantLocation,
+      });
+      new google.maps.Marker({
+        position: restaurantLocation,
+        map: map,
+        title: "Restaurante",
+      });
+    }
+
+    // Función para abrir la página de reservas
+    function openReservation() {
+      window.open("https://www.ejemplo.com/reservas", "_blank");
+    }
+
+    // Función para redirigir al menú de comida
+    function goToMenu() {
+      window.location.href = "menu.html"; // Redirige a la página del menú
+    }
+
+    // Función para hacer scroll hasta una sección
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Función para abrir/cerrar el menú lateral
+    function toggleMenu() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
+

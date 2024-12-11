@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #212121;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.buttons button {
+  background-color: #ccaa55;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #e1b15c;
+}
+
+footer {
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* Sidebar Menu Styles */
+.menu-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar.active {
+  width: 250px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  text-align: center;
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 14px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+.close-btn {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Content Styling */
+#content {
+  margin-left: 0;
+  transition: margin-left 0.3s;
+}
+
+#inicio, #horarios, #contacto, #quienes-somos, #ubicacion {
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Map Styling */
+#map {
+  height: 300px;
+  width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  /* Para pantallas más pequeñas, como tabletas */
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .buttons button {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .menu-icon {
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  footer {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Para pantallas muy pequeñas, como teléfonos móviles */
+  h1 {
+    font-size: 18px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+  }
+
+  .menu-icon {
+    font-size: 26px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+
+
